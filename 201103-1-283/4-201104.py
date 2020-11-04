@@ -1,5 +1,4 @@
 """
-283. 移动零
 给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。
 
 示例:
@@ -17,16 +16,14 @@ from typing import List
 class Solution:
     def moveZeroes(self, nums: List[int]) -> None:
         j = 0
-
         for i in range(len(nums)):
             if nums[i] != 0:
+                tmp = nums[j]
                 nums[j] = nums[i]
-                if i != j:
-                    nums[i] = 0
-                    i += 1
+                nums[i] = tmp
                 j += 1
+
         print(nums)
 
 
-solution = Solution()
-solution.moveZeroes([0, 1, 0, 3, 12])
+Solution().moveZeroes([0, 1, 0, 3, 12])
